@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(winget install --id GitHub.cli --silent --accept-source-agreements --accept-package-agreements)",
-      "Bash(GH=\"/c/Users/User/Downloads/gh_cli/bin/gh.exe\")",
-      "Bash(\"$GH\" auth status)"
-    ]
-  }
-}
