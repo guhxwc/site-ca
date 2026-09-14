@@ -21,13 +21,19 @@ export const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-brand-black">
-      {/* Background Image - Red Truck/Scania Style */}
+      {/* Background Video - Frota em operação */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop"
-          alt="Caminhão Scania Vermelho na estrada"
+        <video
           className="w-full h-full object-cover scale-105"
-        />
+          poster="/video/hero-poster.jpg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/video/hero-truck.mp4" type="video/mp4" />
+        </video>
         {/* Advanced Overlay Gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent/30"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-black/60"></div>
@@ -53,10 +59,8 @@ export const Hero: React.FC = () => {
             </motion.div>
             
             <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-8 tracking-tighter font-display uppercase italic">
-              Transportadora especializada em <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-white">
-                cargas siderúrgicas e perfis de alumínio
-              </span>
+              Transportadora especializada{' '}
+              <span className="text-brand-red">em cargas siderúrgicas e perfis de alumínio</span>
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed mb-10 border-l-2 border-brand-red pl-6">
