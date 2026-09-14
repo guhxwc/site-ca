@@ -54,10 +54,10 @@ export const Header: React.FC = () => {
               className="h-16 w-auto object-contain"
             />
             <div className="flex flex-col">
-              <span className="font-display font-black text-xl md:text-2xl text-white uppercase italic tracking-tighter leading-none">
-                C. A. Rodrigues
+              <span className="font-display font-black text-xl md:text-2xl text-white uppercase italic tracking-tight leading-none">
+                C A Rodrigues
               </span>
-              <span className="font-display font-bold text-xs md:text-sm text-brand-red tracking-[0.2em] uppercase leading-none mt-1">
+              <span className="font-display font-bold text-xs md:text-sm text-brand-red tracking-[0.25em] uppercase leading-none mt-1.5">
                 Transportes
               </span>
             </div>
