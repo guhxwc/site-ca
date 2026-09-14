@@ -54,7 +54,7 @@ export const RegioesRotas: React.FC = () => {
             nacional
           </>
         }
-        description={`A C.A. Rodrigues opera a partir de ${BUSINESS.city}, no eixo de Maringá-PR. Daqui, atendemos rotas regulares para os estados abaixo — e avaliamos qualquer outro destino sob consulta.`}
+        description={`A C.A. Rodrigues opera a partir de ${BUSINESS.city}, no eixo de Maringá-PR. Daqui, atendemos rotas regulares para os estados abaixo e avaliamos qualquer outro destino sob consulta.`}
       />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
@@ -72,14 +72,14 @@ export const RegioesRotas: React.FC = () => {
         </div>
 
         <p className="text-gray-500 text-sm mt-10 max-w-2xl">
-          Não encontrou sua região na lista? Isso não significa que não atendemos — significa apenas
-          que essas são as rotas mais frequentes hoje. Fale com a gente e avaliamos sua rota específica.
+          Não encontrou sua região na lista? Isso não significa que não atendemos. São só as rotas mais
+          frequentes hoje. Fale com a gente e avaliamos sua rota específica.
         </p>
       </section>
 
       <CTASection
         title="Sua rota não está na lista?"
-        description="Conte a origem e o destino da sua carga — avaliamos a viabilidade e retornamos com condições."
+        description="Conte a origem e o destino da sua carga. Avaliamos a viabilidade e retornamos com condições."
       />
     </div>
   );

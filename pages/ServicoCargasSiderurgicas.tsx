@@ -54,7 +54,7 @@ export const ServicoCargasSiderurgicas: React.FC = () => {
             </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
               Aço e produtos siderúrgicos costumam concentrar peso em pouco espaço. Isso exige atenção
-              redobrada à amarração, ao ponto de apoio da carga e à condição do veículo — um erro de
+              redobrada à amarração, ao ponto de apoio da carga e à condição do veículo. Um erro de
               carregamento vira risco de segurança e de avaria na mercadoria.
             </p>
             <p className="text-gray-400 leading-relaxed">
@@ -125,7 +125,7 @@ export const ServicoCargasSiderurgicas: React.FC = () => {
 
       <CTASection
         title="Precisa transportar aço ou produtos siderúrgicos?"
-        description="Descreva o material, o peso aproximado e o destino — retornamos com prazo e condições."
+        description="Descreva o material, o peso aproximado e o destino. Retornamos com prazo e condições."
       />
     </div>
   );

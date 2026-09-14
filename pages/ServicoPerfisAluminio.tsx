@@ -40,7 +40,7 @@ export const ServicoPerfisAluminio: React.FC = () => {
             Transporte de <span className="text-brand-red">Perfis e Barras de Alumínio</span>
           </>
         }
-        description="Um dos materiais mais sensíveis a risco, atrito e deformação durante o transporte. É também uma das operações em que a C.A. Rodrigues mais tem experiência prática — saindo do polo de Arapongas e Maringá-PR para clientes em todo o Brasil."
+        description="Um dos materiais mais sensíveis a risco, atrito e deformação durante o transporte. Também é uma das operações em que a C.A. Rodrigues tem mais experiência prática, com coletas no polo de Arapongas e em Maringá-PR para clientes em todo o Brasil."
       />
 
       {/* Contexto operacional real */}
@@ -56,8 +56,8 @@ export const ServicoPerfisAluminio: React.FC = () => {
             <p className="text-gray-400 leading-relaxed mb-4">
               Perfis e barras de alumínio para esquadrias, estruturas e componentes industriais têm
               acabamento superficial e geometria que sofrem com atrito, empilhamento incorreto e
-              amarração mal feita. Um risco ou uma deformação pode inutilizar uma peça inteira —
-              e o prejuízo cai sobre quem contratou o frete.
+              amarração mal feita. Um risco ou uma deformação pode inutilizar a peça inteira, e o
+              prejuízo cai sobre quem contratou o frete.
             </p>
             <p className="text-gray-400 leading-relaxed">
               Por isso o transporte desse tipo de carga não é só "colocar no caminhão e seguir viagem".
@@ -77,12 +77,12 @@ export const ServicoPerfisAluminio: React.FC = () => {
               {
                 icon: <ShieldCheck className="text-brand-red" size={28} />,
                 title: 'Cuidado no carregamento e descarregamento',
-                desc: 'Etapa em que a maior parte das avarias em perfis de alumínio acontece — por isso é tratada com atenção, não como rotina padrão.',
+                desc: 'Etapa em que acontece a maior parte das avarias em perfis de alumínio. Por isso recebe atenção redobrada, não é tratada como rotina padrão.',
               },
               {
                 icon: <ClipboardCheck className="text-brand-red" size={28} />,
                 title: 'Documentação fiscal completa',
-                desc: 'Emissão de CT-e e, quando aplicável, MDF-e para cada viagem — rastreabilidade fiscal da carga do início ao fim da operação.',
+                desc: 'Emissão de CT-e e, quando aplicável, MDF-e para cada viagem. A carga fica rastreável do início ao fim da operação.',
               },
             ].map((item) => (
               <div
@@ -128,7 +128,7 @@ export const ServicoPerfisAluminio: React.FC = () => {
             ))}
           </div>
           <p className="text-gray-500 text-xs mt-6 max-w-2xl">
-            Atendemos também outras rotas e estados mediante consulta — se sua origem ou destino não
+            Atendemos também outras rotas e estados mediante consulta. Se sua origem ou destino não
             está na lista acima, fale com a gente antes de descartar a possibilidade.
           </p>
         </div>
@@ -146,8 +146,9 @@ export const ServicoPerfisAluminio: React.FC = () => {
             ['03', 'Transporte acompanhado', 'Amarração conferida, viagem com documentação fiscal (CT-e/MDF-e) desde a saída.'],
             ['04', 'Entrega e comprovação', 'Entrega no destino com canhoto/comprovante para fechamento da operação.'],
           ].map(([n, title, desc]) => (
-            <div key={n} className="relative pt-8 border-t-2 border-brand-red">
-              <span className="absolute -top-6 left-0 text-4xl font-display font-black text-white/10">{n}</span>
+            <div key={n} className="flex flex-col">
+              <span className="text-3xl font-display font-black text-white/20 leading-none mb-4">{n}</span>
+              <div className="h-0.5 w-full bg-brand-red mb-4"></div>
               <h3 className="text-white font-display font-bold uppercase text-sm mb-2">{title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
             </div>
@@ -184,7 +185,7 @@ export const ServicoPerfisAluminio: React.FC = () => {
 
       <CTASection
         title="Vai transportar perfis ou barras de alumínio?"
-        description="Conte a quantidade, o formato e o destino da carga — respondemos com prazo e condições."
+        description="Conte a quantidade, o formato e o destino da carga. Respondemos com prazo e condições."
       />
     </div>
   );

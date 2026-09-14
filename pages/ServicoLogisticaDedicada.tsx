@@ -40,7 +40,7 @@ export const ServicoLogisticaDedicada: React.FC = () => {
             Logística <span className="text-brand-red">Dedicada</span>
           </>
         }
-        description="Para indústrias com fluxo de carga recorrente, ter um veículo e uma rotina de coleta combinados com a sua operação reduz incerteza — e é sobre isso que é a logística dedicada."
+        description="Para indústrias com fluxo de carga recorrente, ter um veículo e uma rotina de coleta combinados com a sua operação reduz incerteza. É basicamente sobre isso que é a logística dedicada."
       />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
@@ -51,7 +51,7 @@ export const ServicoLogisticaDedicada: React.FC = () => {
             </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
               Quando o volume e a frequência de embarque justificam, faz mais sentido reservar um
-              veículo e uma rotina só para a sua operação — em vez de negociar cada viagem separadamente.
+              veículo e uma rotina só para a sua operação, em vez de negociar cada viagem separadamente.
               Isso dá mais previsibilidade de prazo e menos variação de custo.
             </p>
             <p className="text-gray-400 leading-relaxed">
@@ -98,7 +98,7 @@ export const ServicoLogisticaDedicada: React.FC = () => {
         <Crosshair className="text-brand-red shrink-0" size={32} />
         <p className="text-gray-400 leading-relaxed max-w-3xl">
           Não sabe se o seu volume já justifica um veículo dedicado? Fale com a gente e avaliamos
-          juntos — sem compromisso.
+          juntos, sem compromisso.
         </p>
       </div>
 

@@ -72,7 +72,7 @@ export const ServicoCargasSecas: React.FC = () => {
           <Truck className="text-brand-red shrink-0" size={32} />
           <p className="text-gray-400 leading-relaxed">
             Se a sua carga não se encaixa exatamente em perfis de alumínio ou produtos siderúrgicos,
-            fale com a gente mesmo assim — atendemos cargas secas em geral e avaliamos o veículo e a
+            fale com a gente mesmo assim. Atendemos cargas secas em geral e avaliamos o veículo e a
             rota mais adequados para o seu caso.
           </p>
         </div>
