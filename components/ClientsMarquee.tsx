@@ -15,24 +15,30 @@ const TRACK = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
 
 export const ClientsMarquee: React.FC = () => {
   return (
-    <section className="bg-brand-black py-14 border-t border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <span className="text-white font-bold uppercase tracking-[0.2em] text-xs font-display block text-center">
+    <section className="bg-brand-black py-20 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span className="text-white font-bold uppercase tracking-[0.2em] text-xs font-display block text-center mb-8">
           Indústrias que já atendemos
         </span>
-      </div>
 
-      <div className="relative w-full [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="flex w-max animate-scroll-right items-center gap-16">
-          {TRACK.map((client, i) => (
-            <img
-              key={`${client.name}-${i}`}
-              src={client.file}
-              alt={client.name}
-              title={client.name}
-              className="h-12 md:h-16 w-auto shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300"
-            />
-          ))}
+        <div className="bg-white/5 border border-white/5 rounded-sm">
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+            <div className="flex w-max animate-scroll-right items-stretch">
+              {TRACK.map((client, i) => (
+                <div
+                  key={`${client.name}-${i}`}
+                  className="flex items-center justify-center px-10 md:px-12 py-8 border-r border-white/10 shrink-0"
+                >
+                  <img
+                    src={client.file}
+                    alt={client.name}
+                    title={client.name}
+                    className="h-9 md:h-11 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
