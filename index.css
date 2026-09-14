@@ -23,23 +23,3 @@
     @apply bg-brand-black text-white antialiased selection:bg-brand-red selection:text-white;
   }
 }
-
-/* Carrossel de logos de clientes (ClientsMarquee.tsx) — anda para a direita
-   e pausa no hover. A lista de logos é duplicada no componente, então -50%
-   é exatamente o ponto em que a 2ª cópia assume o lugar da 1ª (loop sem emenda). */
-@keyframes scroll-right {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-
-.animate-scroll-right {
-  animation: scroll-right 55s linear infinite;
-}
-
-.animate-scroll-right:hover {
-  animation-play-state: paused;
-}
