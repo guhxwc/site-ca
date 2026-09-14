@@ -14,7 +14,7 @@ import { NotFound } from './pages/NotFound';
 
 const App: React.FC = () => {
   return (
-    <div className="font-sans text-gray-900 bg-white">
+    <div className="font-sans text-gray-100 bg-brand-black min-h-screen">
       <Header />
       <main>
         <Routes>
