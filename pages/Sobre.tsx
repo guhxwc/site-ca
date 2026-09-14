@@ -9,8 +9,8 @@ import { BUSINESS } from '../lib/business';
 
 export const Sobre: React.FC = () => {
   useSEO({
-    title: 'Sobre a C.A. Rodrigues Transportes',
-    description: `A C.A. Rodrigues Transportes atua desde ${BUSINESS.foundedYear} em ${BUSINESS.city}-${BUSINESS.state}, especializada em cargas siderúrgicas, perfis de alumínio e cargas secas.`,
+    title: 'Sobre a C.A. Rodrigues Transportes | Sarandi, Maringá e Arapongas-PR',
+    description: `A C.A. Rodrigues Transportes atua desde ${BUSINESS.foundedYear} em ${BUSINESS.city}-${BUSINESS.state} e Maringá, com coletas em Arapongas. Especializada em cargas siderúrgicas, perfis de alumínio e cargas secas.`,
     path: '/sobre',
     jsonLd: [
       localBusinessSchema(),
@@ -31,7 +31,7 @@ export const Sobre: React.FC = () => {
             Transportadora especializada, <span className="text-brand-red">não genérica</span>
           </>
         }
-        description={`Desde ${BUSINESS.foundedYear}, atuando em ${BUSINESS.city}-${BUSINESS.state} com foco em cargas siderúrgicas, perfis de alumínio e cargas secas para indústria.`}
+        description={`Desde ${BUSINESS.foundedYear}, atuando em ${BUSINESS.city} e Maringá-PR, com coletas frequentes no polo do alumínio de Arapongas. Foco em cargas siderúrgicas, perfis de alumínio e cargas secas para indústria.`}
       />
       <About />
       <CTASection />

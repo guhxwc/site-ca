@@ -1,4 +1,4 @@
-import { BUSINESS, SITE_URL } from './business';
+import { BUSINESS, LOCAL_AREAS, SITE_URL } from './business';
 
 export function localBusinessSchema() {
   return {
@@ -17,10 +17,14 @@ export function localBusinessSchema() {
       addressRegion: BUSINESS.state,
       addressCountry: BUSINESS.country,
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'Brasil',
-    },
+    areaServed: [
+      ...LOCAL_AREAS.map((a) => ({
+        '@type': 'City',
+        name: a.city,
+        containedInPlace: { '@type': 'State', name: 'Paraná' },
+      })),
+      { '@type': 'Country', name: 'Brasil' },
+    ],
     // taxID: ajuste/valide o formato antes de publicar (o Google não exige, mas ajuda a
     // desambiguar a entidade caso a empresa registre no Google Business Profile).
     taxID: BUSINESS.cnpj,

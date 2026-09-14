@@ -28,7 +28,8 @@ export const Footer: React.FC = () => {
             </div>
             <p className="text-sm text-gray-500 max-w-sm mb-6 leading-relaxed">
               Transportadora especializada em cargas siderúrgicas, perfis de alumínio e cargas secas,
-              sediada em {BUSINESS.city}-{BUSINESS.state} desde {BUSINESS.foundedYear}.
+              sediada em {BUSINESS.city}-{BUSINESS.state} desde {BUSINESS.foundedYear}. Operação também
+              em Maringá, com coletas no polo do alumínio de Arapongas.
             </p>
             <div className="flex gap-4">
                {/* Social placeholders */}

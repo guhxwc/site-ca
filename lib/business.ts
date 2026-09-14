@@ -20,6 +20,30 @@ export const BUSINESS = {
   email: 'carlosrodrigues.transportes@gmail.com',
 } as const;
 
+// Cidades onde a operação realmente acontece (sede + coleta), usadas na
+// página Regiões e Rotas e no schema LocalBusiness. Cada uma tem um papel
+// diferente e verdadeiro — não é a mesma frase repetida trocando o nome.
+export const LOCAL_AREAS = [
+  {
+    city: 'Sarandi',
+    state: 'PR',
+    role: 'Sede',
+    desc: 'Matriz da C.A. Rodrigues Transportes desde 2012.',
+  },
+  {
+    city: 'Maringá',
+    state: 'PR',
+    role: 'Operação',
+    desc: 'Região metropolitana onde a empresa também opera e faz coletas.',
+  },
+  {
+    city: 'Arapongas',
+    state: 'PR',
+    role: 'Coleta',
+    desc: 'Polo do alumínio do Norte do Paraná — principal origem de carga da empresa.',
+  },
+] as const;
+
 // Serviços — cada um vira uma página própria (arquitetura de "hub de assuntos").
 // slug precisa bater com a rota definida em App.tsx.
 // icon é a chave usada no mapa de ícones do Header (components/Header.tsx),

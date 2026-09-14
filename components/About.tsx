@@ -48,7 +48,7 @@ export const About: React.FC = () => {
               Confiabilidade e <br/><span className="text-gray-500">Crescimento.</span>
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed mb-8 border-l border-brand-red/30 pl-6">
-              A <strong>C. A. Rodrigues Transportes</strong> é referência no transporte de cargas siderúrgicas e perfis de alumínio. Nossa missão é oferecer soluções logísticas seguras, pontuais e organizadas, com foco total na integridade da carga e satisfação do cliente.
+              A <strong>C. A. Rodrigues Transportes</strong> é referência no transporte de cargas siderúrgicas e perfis de alumínio. Sediada em Sarandi, no eixo de Maringá-PR, com coletas frequentes no polo industrial de Arapongas. Nossa missão é oferecer soluções logísticas seguras, pontuais e organizadas, com foco total na integridade da carga e satisfação do cliente.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
