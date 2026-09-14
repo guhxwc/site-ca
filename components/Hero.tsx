@@ -93,7 +93,7 @@ export const Hero: React.FC = () => {
 
           {/* Right Side Stats/Highlights */}
           <motion.div 
-            className="hidden lg:block lg:col-span-4 pb-4"
+            className="hidden lg:block lg:col-span-4 pb-4 lg:ml-6 xl:ml-16 2xl:ml-28"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
