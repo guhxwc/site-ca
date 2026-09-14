@@ -22,15 +22,19 @@ export const BUSINESS = {
 
 // Serviços — cada um vira uma página própria (arquitetura de "hub de assuntos").
 // slug precisa bater com a rota definida em App.tsx.
+// icon é a chave usada no mapa de ícones do Header (components/Header.tsx),
+// não importamos lucide-react aqui pra manter esse arquivo livre de JSX.
 export type ServiceKey =
   | 'perfis-aluminio'
   | 'cargas-siderurgicas'
   | 'cargas-secas'
   | 'logistica-dedicada';
 
+export type ServiceIcon = 'Layers' | 'Factory' | 'Package' | 'Truck';
+
 export const SERVICES: Record<
   ServiceKey,
-  { slug: string; navTitle: string; pageTitle: string; shortDesc: string }
+  { slug: string; navTitle: string; pageTitle: string; shortDesc: string; menuDesc: string; icon: ServiceIcon }
 > = {
   'perfis-aluminio': {
     slug: 'transporte-perfis-aluminio',
@@ -38,6 +42,8 @@ export const SERVICES: Record<
     pageTitle: 'Transporte de Perfis e Barras de Alumínio',
     shortDesc:
       'Transporte especializado de perfis e barras de alumínio, com amarração e acondicionamento pensados para evitar avaria e deformação.',
+    menuDesc: 'Perfis e barras sem avarias',
+    icon: 'Layers',
   },
   'cargas-siderurgicas': {
     slug: 'transporte-cargas-siderurgicas',
@@ -45,6 +51,8 @@ export const SERVICES: Record<
     pageTitle: 'Transporte de Cargas Siderúrgicas e Aço',
     shortDesc:
       'Transporte de produtos siderúrgicos, aço e derivados para indústria metalúrgica, com estrutura pensada para carga pesada.',
+    menuDesc: 'Aço e derivados com segurança',
+    icon: 'Factory',
   },
   'cargas-secas': {
     slug: 'transporte-cargas-secas',
@@ -52,6 +60,8 @@ export const SERVICES: Record<
     pageTitle: 'Transporte de Cargas Secas',
     shortDesc:
       'Transporte rodoviário de cargas secas em geral, com abrangência nacional e acompanhamento de ponta a ponta.',
+    menuDesc: 'Carga geral, todo o Brasil',
+    icon: 'Package',
   },
   'logistica-dedicada': {
     slug: 'logistica-dedicada',
@@ -59,6 +69,8 @@ export const SERVICES: Record<
     pageTitle: 'Logística Dedicada para Indústria',
     shortDesc:
       'Veículo exclusivo e rotina de coleta combinada com a sua operação, para quem precisa de recorrência e previsibilidade.',
+    menuDesc: 'Veículo exclusivo pra sua rotina',
+    icon: 'Truck',
   },
 };
 

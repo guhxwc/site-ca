@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, ArrowRight, ChevronDown } from 'lucide-react';
-import { SERVICE_LIST } from '../lib/business';
+import { Menu, X, Phone, ArrowRight, ChevronDown, Layers, Factory, Package, Truck } from 'lucide-react';
+import { SERVICE_LIST, ServiceIcon } from '../lib/business';
+
+const SERVICE_ICONS: Record<ServiceIcon, React.ComponentType<{ size?: number; className?: string }>> = {
+  Layers,
+  Factory,
+  Package,
+  Truck,
+};
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,20 +88,29 @@ export const Header: React.FC = () => {
                   <ChevronDown size={14} className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72 transition-all duration-200 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 transition-all duration-200 ${
                     isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-brand-black border border-white/10 rounded-sm overflow-hidden shadow-2xl">
-                    {SERVICE_LIST.map((s) => (
-                      <Link
-                        key={s.slug}
-                        to={`/${s.slug}`}
-                        className="block px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-red transition-colors font-display uppercase tracking-wide border-b border-white/5 last:border-0"
-                      >
-                        {s.navTitle}
-                      </Link>
-                    ))}
+                  <div className="bg-white rounded-2xl shadow-2xl border border-black/5 overflow-hidden p-2">
+                    {SERVICE_LIST.map((s) => {
+                      const Icon = SERVICE_ICONS[s.icon];
+                      return (
+                        <Link
+                          key={s.slug}
+                          to={`/${s.slug}`}
+                          className="flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-red-50 transition-colors group/item"
+                        >
+                          <div className="shrink-0 w-10 h-10 rounded-lg bg-gray-100 group-hover/item:bg-brand-red flex items-center justify-center transition-colors">
+                            <Icon size={18} className="text-gray-500 group-hover/item:text-white transition-colors" />
+                          </div>
+                          <div className="pt-0.5">
+                            <p className="text-sm font-bold text-gray-900 font-display leading-tight">{s.navTitle}</p>
+                            <p className="text-xs text-gray-500 mt-1 leading-snug">{s.menuDesc}</p>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -150,17 +166,27 @@ export const Header: React.FC = () => {
 
           <div className="pb-4 border-b border-white/5">
             <span className="block text-xs uppercase tracking-widest text-gray-500 font-display mb-3">Serviços</span>
-            <div className="space-y-3 pl-2">
-              {SERVICE_LIST.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/${s.slug}`}
-                  className="flex items-center justify-between text-lg font-display font-bold text-white/90 hover:text-brand-red"
-                >
-                  {s.navTitle}
-                  <ArrowRight size={14} className="opacity-50" />
-                </Link>
-              ))}
+            <div className="space-y-1">
+              {SERVICE_LIST.map((s) => {
+                const Icon = SERVICE_ICONS[s.icon];
+                return (
+                  <Link
+                    key={s.slug}
+                    to={`/${s.slug}`}
+                    className="flex items-center gap-3 py-2 group"
+                  >
+                    <div className="shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
+                      <Icon size={16} className="text-brand-red" />
+                    </div>
+                    <div className="flex-1 flex items-center justify-between">
+                      <span className="text-base font-display font-bold text-white/90 group-hover:text-brand-red">
+                        {s.navTitle}
+                      </span>
+                      <ArrowRight size={14} className="opacity-50" />
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
