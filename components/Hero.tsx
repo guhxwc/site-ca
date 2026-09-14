@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, ChevronDown, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const MOBILE_BREAKPOINT = '(min-width: 640px)'; // mesmo valor do "sm" do Tailwind
+
 export const Hero: React.FC = () => {
+  // Começa assumindo mobile (imagem estática) até confirmar que a tela é
+  // grande o bastante para valer a pena carregar o vídeo — evita gastar
+  // dados do celular com um vídeo que nunca vai aparecer.
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_BREAKPOINT);
+    setShowVideo(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setShowVideo(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,19 +36,27 @@ export const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-brand-black">
-      {/* Background Video - Frota em operação */}
+      {/* Background Video - Frota em operação (imagem estática no mobile, por dados/performance) */}
       <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover scale-105"
-          poster="/video/hero-poster.jpg"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/video/hero-truck.mp4" type="video/mp4" />
-        </video>
+        {showVideo ? (
+          <video
+            className="w-full h-full object-cover scale-105"
+            poster="/video/hero-poster.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/video/hero-truck.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop"
+            alt="Caminhão Scania Vermelho na estrada"
+            className="w-full h-full object-cover scale-105"
+          />
+        )}
         {/* Advanced Overlay Gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent/30"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-black/60"></div>
