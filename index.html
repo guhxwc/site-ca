@@ -3,11 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>C. A. Rodrigues Transportes</title>
+
+    <!-- Título e descrição padrão (home). Cada rota sobrescreve isso via
+         lib/useSEO.ts assim que a página monta — ver comentário lá sobre o
+         motivo (SPA sem SSR/prerender) e a recomendação de médio prazo. -->
+    <title>C.A. Rodrigues | Transportadora de Cargas Siderúrgicas e Perfis de Alumínio</title>
+    <meta name="description" content="Transportadora especializada em cargas siderúrgicas e perfis de alumínio, sediada em Sarandi-PR. Atendimento nacional, desde 2012. Solicite uma cotação." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://carodrigues.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="C.A. Rodrigues Transportes" />
+    <meta property="og:title" content="C.A. Rodrigues | Transportadora de Cargas Siderúrgicas e Perfis de Alumínio" />
+    <meta property="og:description" content="Transportadora especializada em cargas siderúrgicas e perfis de alumínio, sediada em Sarandi-PR. Atendimento nacional, desde 2012." />
+    <meta property="og:url" content="https://carodrigues.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Condensed:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/index.css">
+
+    <!-- Schema base da empresa (Organization/LocalBusiness). A página inicial
+         também injeta uma versão via JS (lib/schema.ts) — ter esta aqui garante
+         que até um crawler que não execute JS veja a entidade correta. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://carodrigues.com/#organization",
+        "name": "C. A. Rodrigues Transportes",
+        "legalName": "C. A. Rodrigues dos Santos Transportes ME",
+        "url": "https://carodrigues.com",
+        "telephone": "+5544999240991",
+        "email": "carlosrodrigues.transportes@gmail.com",
+        "foundingDate": "2012",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sarandi",
+          "addressRegion": "PR",
+          "addressCountry": "BR"
+        },
+        "areaServed": { "@type": "Country", "name": "Brasil" }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

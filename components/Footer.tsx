@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { SERVICE_LIST, BUSINESS } from '../lib/business';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -25,7 +27,8 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-sm text-gray-500 max-w-sm mb-6 leading-relaxed">
-              Soluções logísticas inteligentes com frota moderna e compromisso com a segurança. Transformando o transporte rodoviário desde 2012.
+              Transportadora especializada em cargas siderúrgicas, perfis de alumínio e cargas secas,
+              sediada em {BUSINESS.city}-{BUSINESS.state} desde {BUSINESS.foundedYear}.
             </p>
             <div className="flex gap-4">
                {/* Social placeholders */}
@@ -36,29 +39,30 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-display font-bold mb-6 uppercase text-sm tracking-widest">Navegação</h4>
+            <h4 className="text-white font-display font-bold mb-6 uppercase text-sm tracking-widest">Serviços</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#home" className="hover:text-brand-red transition-colors">Início</a></li>
-              <li><a href="#about" className="hover:text-brand-red transition-colors">Sobre a Empresa</a></li>
-              <li><a href="#services" className="hover:text-brand-red transition-colors">Serviços</a></li>
-              <li><a href="#contact" className="hover:text-brand-red transition-colors">Cotação Online</a></li>
+              {SERVICE_LIST.map((s) => (
+                <li key={s.slug}>
+                  <Link to={`/${s.slug}`} className="hover:text-brand-red transition-colors">{s.navTitle}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-display font-bold mb-6 uppercase text-sm tracking-widest">Legal</h4>
+            <h4 className="text-white font-display font-bold mb-6 uppercase text-sm tracking-widest">Empresa</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-brand-red transition-colors">Política de Privacidade</a></li>
-              <li><a href="#" className="hover:text-brand-red transition-colors">Termos de Uso</a></li>
-              <li><a href="#" className="hover:text-brand-red transition-colors">Trabalhe Conosco</a></li>
+              <li><Link to="/sobre" className="hover:text-brand-red transition-colors">Sobre a Empresa</Link></li>
+              <li><Link to="/regioes-e-rotas" className="hover:text-brand-red transition-colors">Regiões e Rotas</Link></li>
+              <li><Link to="/contato" className="hover:text-brand-red transition-colors">Cotação Online</Link></li>
             </ul>
           </div>
 
         </div>
         
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono">
-          <p>&copy; {currentYear} C. A. Rodrigues Transportes Ltda. CNPJ: 15.663.543/0001-66.</p>
-          <p className="mt-2 md:mt-0">Desenvolvido com tecnologia de ponta.</p>
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono gap-2">
+          <p>&copy; {currentYear} {BUSINESS.legalName}. CNPJ: {BUSINESS.cnpj}.</p>
+          <p>{BUSINESS.city} – {BUSINESS.stateFull} · {BUSINESS.phoneDisplay}</p>
         </div>
       </div>
     </footer>

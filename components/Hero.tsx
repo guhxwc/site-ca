@@ -52,16 +52,16 @@ export const Hero: React.FC = () => {
               </span>
             </motion.div>
             
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-black text-white leading-[0.95] mb-8 tracking-tighter font-display uppercase italic">
-              Excelência em <br/>
+            <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-8 tracking-tighter font-display uppercase italic">
+              Transportadora especializada em <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-white">
-                Transporte Rodoviário
+                cargas siderúrgicas e perfis de alumínio
               </span>
-              <br/> de Cargas
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed mb-10 border-l-2 border-brand-red pl-6">
-              Especialistas em transporte de cargas siderúrgicas, perfis de alumínio e cargas secas. Oferecemos soluções logísticas seguras, pontuais e organizadas para sua empresa.
+              Transporte de aço, produtos siderúrgicos, perfis e barras de alumínio e cargas secas para
+              indústria, saindo de Sarandi/Maringá-PR com atendimento em todo o Brasil.
             </motion.p>
             
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">

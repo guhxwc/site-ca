@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, ArrowRight } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Phone, ArrowRight, ChevronDown } from 'lucide-react';
+import { SERVICE_LIST } from '../lib/business';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,28 +17,33 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Início', href: '#home' },
-    { name: 'A Empresa', href: '#about' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: '/' },
+    { name: 'Sobre', href: '/sobre' },
+    { name: 'Regiões e Rotas', href: '/regioes-e-rotas' },
+    { name: 'Contato', href: '/contato' },
   ];
 
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
-        isScrolled 
-          ? 'bg-brand-black/80 backdrop-blur-md border-white/10 py-3' 
+        isScrolled
+          ? 'bg-brand-black/80 backdrop-blur-md border-white/10 py-3'
           : 'bg-transparent border-transparent py-6'
       }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center">
           {/* Logo Area */}
-          <div className="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
-            <img 
-              src="https://i.imgur.com/KVPxxDG.png" 
-              alt="C.A. Rodrigues Transportes" 
+          <Link to="/" className="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
+            <img
+              src="https://i.imgur.com/KVPxxDG.png"
+              alt="C.A. Rodrigues Transportes"
               className="h-16 w-auto object-contain"
             />
             <div className="flex flex-col">
@@ -45,31 +54,71 @@ export const Header: React.FC = () => {
                 Transportes
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            <div className="flex bg-white/5 rounded-full px-6 py-2 border border-white/5 backdrop-blur-sm mr-6">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex items-center bg-white/5 rounded-full px-6 py-2 border border-white/5 backdrop-blur-sm mr-6">
+              <Link
+                to="/"
+                className="px-4 py-1 text-sm font-bold uppercase tracking-wide text-gray-300 hover:text-brand-red transition-colors duration-200 font-display"
+              >
+                Início
+              </Link>
+
+              {/* Services dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <button
+                  className="flex items-center gap-1 px-4 py-1 text-sm font-bold uppercase tracking-wide text-gray-300 hover:text-brand-red transition-colors duration-200 font-display"
+                  aria-haspopup="true"
+                  aria-expanded={isServicesOpen}
+                >
+                  Serviços
+                  <ChevronDown size={14} className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <div
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72 transition-all duration-200 ${
+                    isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                  }`}
+                >
+                  <div className="bg-brand-black border border-white/10 rounded-sm overflow-hidden shadow-2xl">
+                    {SERVICE_LIST.map((s) => (
+                      <Link
+                        key={s.slug}
+                        to={`/${s.slug}`}
+                        className="block px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-red transition-colors font-display uppercase tracking-wide border-b border-white/5 last:border-0"
+                      >
+                        {s.navTitle}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {navLinks.slice(1).map((link) => (
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="px-4 py-1 text-sm font-bold uppercase tracking-wide text-gray-300 hover:text-brand-red transition-colors duration-200 font-display"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
-            
-            <a
-              href="#contact"
+
+            <Link
+              to="/contato"
               className="flex items-center gap-3 px-6 py-3 bg-brand-red hover:bg-red-700 text-white font-display font-bold text-sm uppercase tracking-wider transition-all duration-300 skew-x-[-10deg] group"
             >
               <span className="skew-x-[10deg] flex items-center gap-2">
                 <Phone size={16} className="fill-current" />
                 Cotação Rápida
               </span>
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -85,30 +134,53 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div 
+      <div
         className={`md:hidden absolute top-full left-0 w-full bg-brand-black/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+          isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="px-4 py-8 space-y-4">
-          {navLinks.map((link) => (
-            <a
+          <Link
+            to="/"
+            className="flex items-center justify-between text-xl font-display font-bold text-white hover:text-brand-red border-b border-white/5 pb-4"
+          >
+            Início
+            <ArrowRight size={16} className="opacity-50" />
+          </Link>
+
+          <div className="pb-4 border-b border-white/5">
+            <span className="block text-xs uppercase tracking-widest text-gray-500 font-display mb-3">Serviços</span>
+            <div className="space-y-3 pl-2">
+              {SERVICE_LIST.map((s) => (
+                <Link
+                  key={s.slug}
+                  to={`/${s.slug}`}
+                  className="flex items-center justify-between text-lg font-display font-bold text-white/90 hover:text-brand-red"
+                >
+                  {s.navTitle}
+                  <ArrowRight size={14} className="opacity-50" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {navLinks.slice(1).map((link) => (
+            <Link
               key={link.name}
-              href={link.href}
-              onClick={() => setIsMenuOpen(false)}
+              to={link.href}
               className="flex items-center justify-between text-xl font-display font-bold text-white hover:text-brand-red border-b border-white/5 pb-4"
             >
               {link.name}
               <ArrowRight size={16} className="opacity-50" />
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setIsMenuOpen(false)}
+
+          <Link
+            to="/contato"
             className="block w-full text-center mt-6 bg-brand-red text-white px-6 py-4 font-bold uppercase tracking-wider font-display"
           >
             Solicitar Cotação
-          </a>
+          </Link>
         </div>
       </div>
     </header>

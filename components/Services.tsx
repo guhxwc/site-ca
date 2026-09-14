@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Layers, Factory, Truck, Package, ArrowUpRight } from 'lucide-react';
 
-const ServiceCard: React.FC<{ title: string; desc: string; icon: React.ReactNode; image: string }> = ({ title, desc, icon, image }) => (
-  <div className="group relative h-96 overflow-hidden rounded-sm bg-brand-gray border border-white/5">
+const ServiceCard: React.FC<{ title: string; desc: string; icon: React.ReactNode; image: string; to: string }> = ({ title, desc, icon, image, to }) => (
+  <Link to={to} className="group relative h-96 overflow-hidden rounded-sm bg-brand-gray border border-white/5 block">
     {/* Background Image with Overlay */}
     <div className="absolute inset-0">
       <img src={image} alt={title} className="w-full h-full object-cover opacity-40 group-hover:opacity-20 group-hover:scale-110 transition-all duration-700" />
@@ -29,7 +30,7 @@ const ServiceCard: React.FC<{ title: string; desc: string; icon: React.ReactNode
       
       <div className="w-full h-1 bg-brand-red mt-6 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
     </div>
-  </div>
+  </Link>
 );
 
 export const Services: React.FC = () => {
@@ -54,24 +55,28 @@ export const Services: React.FC = () => {
             title="Perfis de Alumínio"
             desc="Transporte especializado de perfis e barras de alumínio, garantindo a integridade do material delicado."
             image="https://i.imgur.com/zfSTuDL.jpeg"
+            to="/transporte-perfis-aluminio"
           />
           <ServiceCard
             icon={<Factory size={40} />}
             title="Cargas Siderúrgicas"
             desc="Transporte seguro e eficiente de produtos siderúrgicos, aço e derivados para a indústria."
             image="https://i.imgur.com/SwOn5KX.jpeg"
+            to="/transporte-cargas-siderurgicas"
           />
           <ServiceCard
             icon={<Package size={40} />}
             title="Cargas Secas"
             desc="Soluções completas para o transporte de cargas secas em geral, com abrangência nacional."
             image="https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2000&auto=format&fit=crop"
+            to="/transporte-cargas-secas"
           />
           <ServiceCard
             icon={<Truck size={40} />}
             title="Logística Dedicada"
             desc="Veículos exclusivos e rotas otimizadas para atender a demanda específica do seu negócio."
             image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
+            to="/logistica-dedicada"
           />
         </div>
       </div>
