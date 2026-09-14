@@ -92,21 +92,21 @@ export const Header: React.FC = () => {
                     isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-white rounded-2xl shadow-2xl border border-black/5 overflow-hidden p-2">
+                  <div className="bg-brand-gray rounded-2xl shadow-2xl border border-white/10 overflow-hidden p-2">
                     {SERVICE_LIST.map((s) => {
                       const Icon = SERVICE_ICONS[s.icon];
                       return (
                         <Link
                           key={s.slug}
                           to={`/${s.slug}`}
-                          className="flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-red-50 transition-colors group/item"
+                          className="flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-white/5 transition-colors group/item"
                         >
-                          <div className="shrink-0 w-10 h-10 rounded-lg bg-gray-100 group-hover/item:bg-brand-red flex items-center justify-center transition-colors">
-                            <Icon size={18} className="text-gray-500 group-hover/item:text-white transition-colors" />
+                          <div className="shrink-0 w-10 h-10 rounded-lg bg-white/10 group-hover/item:bg-brand-red flex items-center justify-center transition-colors">
+                            <Icon size={18} className="text-gray-300 group-hover/item:text-white transition-colors" />
                           </div>
                           <div className="pt-0.5">
-                            <p className="text-sm font-bold text-gray-900 font-display leading-tight">{s.navTitle}</p>
-                            <p className="text-xs text-gray-500 mt-1 leading-snug">{s.menuDesc}</p>
+                            <p className="text-sm font-bold text-white font-display leading-tight">{s.navTitle}</p>
+                            <p className="text-xs text-gray-400 mt-1 leading-snug">{s.menuDesc}</p>
                           </div>
                         </Link>
                       );
