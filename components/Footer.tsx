@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Linkedin } from 'lucide-react';
 import { SERVICE_LIST, BUSINESS } from '../lib/business';
 
 export const Footer: React.FC = () => {
@@ -35,7 +36,15 @@ export const Footer: React.FC = () => {
                {/* Social placeholders */}
                <div className="w-10 h-10 bg-brand-gray rounded-sm flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors cursor-pointer">IG</div>
                <div className="w-10 h-10 bg-brand-gray rounded-sm flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors cursor-pointer">FB</div>
-               <div className="w-10 h-10 bg-brand-gray rounded-sm flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors cursor-pointer">LN</div>
+               <a
+                 href="https://www.linkedin.com/in/carlos-santos-71317b31b"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="LinkedIn da C.A. Rodrigues"
+                 className="w-10 h-10 bg-brand-gray rounded-sm flex items-center justify-center hover:bg-brand-red transition-colors"
+               >
+                 <Linkedin size={18} className="text-white" />
+               </a>
             </div>
           </div>
 
